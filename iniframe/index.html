@@ -3,12 +3,19 @@
 <title>HI</title>
 <body>
 
+<input type="button" id='addValue' value="click">
+
+
 <script type="text/javascript">
-var GameAPI = function(){
-	alert("Hi");
+
+var count = 0;
+var GameAPI = function(msg){
+	window.postMessage(msg, '*');
 };
 
-GameAPI();
+document.getElementById('addValue').addEventListener('click', function (argument) {
+	GameAPI(count++);
+})
 
 </script>
 </body>

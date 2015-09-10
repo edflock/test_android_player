@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<iframe id='iframe' src="../iniframe/index.html" frameborder="0"></iframe>
+	<div id="showCount"></div>
+	<script>
+		var win = document.getElementById("iframe").contentWindow
+
+		win.addEventListener("message", receiveMessage, false);
+
+		function receiveMessage(event) {
+			console.log(event);
+			document.getElementById("showCount").innerHTML= event.data;
+		}
+	</script>
+</body>
+</html>
